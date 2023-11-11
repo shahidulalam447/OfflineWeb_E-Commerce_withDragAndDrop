@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <title>MFL Laptop House</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="scripts/functions.js"></script>
+    <style>
+        body {
+            padding-top: 70px;           
+            background-color: #ddd;
+            background-size: cover;            
+        }
+        #div1 {
+        width: 350px;
+        height: 70px;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+        }
+
+    </style>
+    <script>
+        function allowDrop(ev) {
+        ev.preventDefault();
+        }
+
+        function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+         ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        }
+        $(() => {
+            createTables();
+            if (checkLogin()) {
+                $('#login-item').hide();
+                $('#register-item').hide();
+                $("#count").html(getCartItemCount());
+            }
+            else {
+                $('#login-item').show();
+                $('#register-item').show();
+
+
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark fixed-top" style="background: #fff;">
+        <div class="container-fluid">
+            <span class="navbar-brand"><img src="Images/logo.jpg" style="width: 200px; height: 50px;" alt="logo"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="product.html" class="nav-link">Buy Product</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="cart.html" class="nav-link"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span id="count">0</span> items</a></li>
+                    <li class="nav-item" id="login-item"><a href="login.html" class="nav-link">Sign in</a></li>
+
+                    <li class="nav-item" id="register-item"><a href="register.html" class="nav-link">Register</a></li>
+                    <li class="nav-item"><a href="admin.html" class="nav-link" id="">Admin</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="col-lg-6">
+            <h1 style="color: rgb(11, 56, 182)">Welcome to MFL Laptop House</h1>
+            <div class="line">
+
+            </div>
+        </div>
+
+        <div class="card text-bg-secondary mb-3">
+            <div class="card-header">
+                <h5 class="card-title">MFL Laptop House</h5>
+                <h6 class="card-subtitle">offline storage-based application</h6>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Main features</h5>
+                <ul>
+                    <li>sessonStatorage & localStorage</li>
+                </ul>
+                <p class="card-text">For admin panel use password</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Drag and Drop -->
+
+    <div style="padding-left: 48px;">
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <br>
+        <img id="drag1" src="Images/a3.jpg"  draggable="true" ondragstart="drag(event)" width="339" height="69">
+    </div>
+
+    <footer class="container">
+        <pre>                                               &copy; 2023 DESIGNED & DEVELOPED BY 
+                                                 MD SHAHIDUL ALAM | 1272289
+        </pre>
+    </footer>
+</body>
+</html>

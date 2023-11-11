@@ -1,0 +1,17 @@
+{
+  "name": "offlineweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shahidul_1272289",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.6.0",
+    "jquery-validation": "^1.19.5"
+  }
+}
